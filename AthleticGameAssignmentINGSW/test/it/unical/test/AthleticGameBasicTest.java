@@ -28,41 +28,11 @@ public class AthleticGameBasicTest {
 		Assert.assertEquals(1, athletic.getArrivals().size());
 	}
 	
-	@Test
-	public void winnerWorks1() {
-		athletic.reset();
-		athletic.start();
-		athletic.addArrival("Vincenzo", Instant.now());
-		Assert.assertEquals("Vincenzo", athletic.getWinner());
-	}
 	
-	@Test
-	public void winnerWorks2() {
-		athletic.reset();
-		athletic.start();
-		athletic.addArrival("Vincenzo", Instant.now());
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		athletic.addArrival("Antonio", Instant.now());
-		Assert.assertEquals("Vincenzo", athletic.getWinner());
-	}
 
 	@Test(expected = IllegalArgumentException.class) 
 	public void getParticipiantTimeWorks() {
 		athletic.getParecipiantTime(name2);
-	}
-
-	@After
-	public void resetWorks() {
-		athletic.reset();
-	}
-	
-	@Before
-	public void startWorks() {
-		athletic.start();
 	}
 
 
